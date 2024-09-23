@@ -1,30 +1,39 @@
 ## SOBRE O JOGO:
 
-### Lycans
+### Bilhar 2D
 
-Lycans é um jogo multiplayer que pode acomodar até 10 jogadores. Investigue para encontrar os lobisomens escondidos entre os aldeões durante o dia e esconda-se à noite para sobreviver aos ataques deles! 
-
-O jogo é baseado na interação entre os jogadores. O chat de voz por proximidade integrado é obrigatório para jogar. 
-
-Todas as manhãs, os jogadores se reúnem para votar e eliminar um possível lobisomem. Explore e procure pela ilha para reunir recursos que ajudem os aldeões a vencer antes que todos sejam mortos...
+O Billiards 2D é um jogo de bilhar gratuito, incluindo 8 bolas, 9 bolas, 15 bolas, 3 bolas, rotação e blackjack. Os gráficos são espetaculares e a física é realista e precisa. Quer você jogue contra o computador ou contra jogadores reais de todo o mundo online, a ação é tranquila e rápida! (Descrição do jogo na Steam).
 
 ## IDEIA DO CONTROLE:
 
-A dinâmica do jogo é simples. Andar (ou agachar), coletar itens, tomar porções e votar. Nesse sentido, para o nosso controle, seria interessante ter um controle parecido como o do Playstation, com joysticks (analógicos), botões etc.
+A dinâmica do jogo é simples. Queremos um "controle" tal qual nós possamos clicar num botão para "carregar" a intensidade da batida do taco na bola e controla a direção com o mesmo. Quando soltamos o botão, a batida é realizada.
 
 ## INPUTS E OUTPUTS
 
 ### Inputs
-- Um Joystick para mexer a visão.
-- Um Joystick para andar.
-- Um botão de interação (seja com itens, portas, etc. Geralmente é a mesma tecla).
-- Um botão de agachar.
-- Um botão de se transformar em lobo.
-- Um botão para votar.
-- Um botão para mirar a arma. 
+- Botão para carregar a intensidade e tacar a bola com o taco.
 
 ### Outputs
-- Vibrar após se transformar em lobo
-- Acender um LED quando interagir com algum elemento
+- LED que acende enquanto o botão estiver pressionado (podendo variar com intensidade).
+- Vibrar (podendo variar com intensidade).
 
 ## DIAGRAMA DE BLOCOS
+1. **Button callback**
+- Responsável por monitorar o estado do botão.
+- Quando o botão é liberado, a tacada é executada.
+
+2. **IMU task**
+- Monitora o movimento de "puxar o controle para trás" para determinar a intensidade da tacada. A intensidade aumenta à medida que o controle é puxado mais para trás.
+- Responsável por monitorar o joystick ou o mouse e capturar a direção desejada durante o carregamento.
+- Esta task está sempre rodando, capturando a posição para ajustar a direção da tacada.
+
+3. **Bluetooth task**
+- Realizar a conexão
+
+4. **LED task**
+- Controla o LED, acendendo enquanto o botão estiver pressionado e apagando quando o botão for solto. Variação de brilho por variação de intensidade.
+
+![Firmware](diagram.jpeg)
+
+## IMAGEM REPRESENTATIVA
+![Controle](controller.png)
