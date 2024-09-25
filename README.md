@@ -6,7 +6,7 @@ O Billiards 2D é um jogo de bilhar gratuito, incluindo 8 bolas, 9 bolas, 15 bol
 
 ## IDEIA DO CONTROLE:
 
-A dinâmica do jogo é simples. Queremos um "controle" tal qual nós possamos clicar num botão para "carregar" a intensidade da batida do taco na bola e controla a direção com o mesmo. Quando soltamos o botão, a batida é realizada.
+A dinâmica do jogo é simples. Queremos um "controle" tal qual nós possamos clicar num botão para "carregar" a intensidade da batida do taco na bola e controla a direção com o mesmo. Quando soltamos o botão, a tacada é realizada.
 
 ## INPUTS E OUTPUTS
 
